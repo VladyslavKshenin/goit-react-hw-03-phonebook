@@ -36,7 +36,7 @@ export const Button = styled('button')(() => {
         textAlign: "center",
         textTransform: "uppercase",
         cursor: "pointer",
-        backgroundColor: "#383848",
+        backgroundColor: "#3f51b5",
         borderRadius: "12px",
         border:"none",
     }

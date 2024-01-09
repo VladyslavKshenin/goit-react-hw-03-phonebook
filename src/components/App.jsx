@@ -12,6 +12,22 @@ class App extends React.Component {
     contacts: dataContacts,
     filter: '',
   };
+
+  componentDidMount() {
+    const unparsedContacts = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(unparsedContacts);
+    if (parsedContacts) {
+      this.setState({ contacts: parsedContacts });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { contacts } = this.state;
+    if (contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    }
+  }
+  
   addNewContact = ({ name, number }) => {
     const { contacts } = this.state;
     const newContact = {
